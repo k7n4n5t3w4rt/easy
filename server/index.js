@@ -2,9 +2,9 @@
 import conf from "./config.js";
 import fs from "fs";
 import http from "http";
-import { h } from "../web_modules/preact.js";
-import htm from "../web_modules/htm.js";
-import render from "../web_modules/preact-render-to-string.js";
+import { h } from "preact";
+import htm from "htm";
+import render from "preact-render-to-string";
 import App from "../js/App.js";
 const html = htm.bind(h);
 
