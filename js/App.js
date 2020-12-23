@@ -13,12 +13,23 @@ type Props = {
 };
 */
 const App /*: function */ = (props /*: Props */) => {
+  // If we don't have the necessary params, return
+  if (
+    props.searchParams.get("sessionId") === null ||
+    props.searchParams.get("position") === null ||
+    typeof parseInt(props.searchParams.get("position")) !== "number"
+  ) {
+    return "VOID";
+  }
+
+  const sessionId /*: string */ = props.searchParams.get("sessionId") || "";
+  const position /*: number */ =
+    parseInt(props.searchParams.get("position")) || 0;
+
   return html`
     <${AppProvider} >
       <${Router} url="${props.urlPath}">
-        <${Dyad} path="/dyad" dyad="${props.searchParams.get(
-    "dyad",
-  )}" position="${props.searchParams.get("position")}"/>
+        <${Dyad} path="/dyad" sessionId="${sessionId}" position="${position}"/>
       </${Router}>
     </${AppProvider} >
   `;

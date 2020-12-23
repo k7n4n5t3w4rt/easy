@@ -8,8 +8,8 @@ const html = htm.bind(h);
 
 /*::
 type Props = {
-  dyad: string,
-  position: string,
+  sessionId: string,
+  position: number,
 };
 */
 const Dyad = (props /*: Props */) => {
@@ -18,20 +18,26 @@ const Dyad = (props /*: Props */) => {
   const positions = [];
 
   const db = new JSONdb("database.json");
-  if (db.has(props.dyad)) {
-    db.get(props.dyad).forEach((item /*: number */) /*: void */ => {
+  if (db.has(props.sessionId)) {
+    db.get(props.sessionId).forEach((item /*: number */) /*: void */ => {
       positions.push(item);
     });
   }
   positions.push(props.position);
-  db.set(props.dyad, positions);
+  db.set(props.sessionId, positions);
 
   const positionString = positions.reduce(
     (accumulator, currentValue) => accumulator + currentValue + ",",
     "",
   );
 
-  return html`{ position: [${positionString}] }`;
+  // DOESN'T WORK :(
+  // const temp = JSON.parse(
+  //   html`{ ${props.sessionId.trim()}: [${positionString}] }`,
+  // );
+  // const reformatted /*: string */ = JSON.stringify(temp);
+
+  return html`{ ${props.sessionId.trim()}: [${positionString}] }`;
 };
 
 export default Dyad;
