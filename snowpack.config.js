@@ -13,6 +13,7 @@ module.exports = {
     "preact-render-to-string",
     "preact-router",
     "should/as-function.js",
+    "simple-json-db",
     "simplestyle-js",
   ],
   installOptions: {
