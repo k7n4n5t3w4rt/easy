@@ -1,6 +1,7 @@
 // @flow
 import { h } from "preact";
-import Dyad from "./Dyad.js";
+import DyadSave from "./DyadSave.js";
+import DyadRead from "./DyadRead.js";
 import Router from "preact-router";
 import htm from "htm";
 import { AppProvider } from "./AppContext.js";
@@ -13,23 +14,14 @@ type Props = {
 };
 */
 const App /*: function */ = (props /*: Props */) => {
-  // If we don't have the necessary params, return
-  if (
-    props.searchParams.get("sessionId") === null ||
-    props.searchParams.get("position") === null ||
-    typeof parseInt(props.searchParams.get("position")) !== "number"
-  ) {
-    return "VOID";
-  }
-
   const sessionId /*: string */ = props.searchParams.get("sessionId") || "";
-  const position /*: number */ =
-    parseInt(props.searchParams.get("position")) || 0;
+  const position /*: string */ = props.searchParams.get("position") || "";
 
   return html`
     <${AppProvider} >
       <${Router} url="${props.urlPath}">
-        <${Dyad} path="/dyad" sessionId="${sessionId}" position="${position}"/>
+        <${DyadSave} path="/dyad-save" sessionId="${sessionId}" position="${position}"/>
+        <${DyadRead} path="/dyad-read" sessionId="${sessionId}"/>
       </${Router}>
     </${AppProvider} >
   `;

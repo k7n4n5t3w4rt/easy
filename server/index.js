@@ -20,28 +20,12 @@ const requestHandler = (req, res) => {
     "http://whocares.com" + req.url,
   ).searchParams;
 
-  const output = renderToString(urlPath, searchParams);
+  const output = render(App({ urlPath, searchParams }), {}, { pretty: true });
 
-  res.end(output);
-};
-
-const renderToString = (
-  urlPath /*: string */,
-  searchParams /*: URLSearchParams */,
-) /*: string */ => {
-  const index /*: string */ = fs.readFileSync("./index.txt", "utf8");
-  let renderedContent = index;
-
-  // Server-side rendering
-  // [1] Swap the placeholder copy with the rendered output
-  const reString = "JSON";
-  const re = new RegExp(reString, "g");
-  renderedContent = index.replace(
-    re,
-    render(App({ urlPath, searchParams }), {}, { pretty: true }),
-  );
-
-  return renderedContent;
+  // Fix up quotes because this is JSON, eg.
+  // { status: "success" } not { status: &quot;success&quot; }
+  const re = /&quot;/g;
+  res.end(output.replace(re, '"'));
 };
 
 const server = http.createServer(requestHandler);

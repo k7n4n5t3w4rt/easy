@@ -9,11 +9,20 @@ const html = htm.bind(h);
 /*::
 type Props = {
   sessionId: string,
-  position: number,
+  position: string,
 };
 */
-const Dyad = (props /*: Props */) => {
+const DyadSave = (props /*: Props */) => {
   // const [count /*: number */, setCount] = useState(props.count);
+
+  // If we don't have the necessary params, return
+  if (
+    props.sessionId === "" ||
+    props.position === "" ||
+    typeof parseInt(props.position) !== "number"
+  ) {
+    return html`{ status: "fail" }`;
+  }
 
   const positions = [];
 
@@ -31,13 +40,7 @@ const Dyad = (props /*: Props */) => {
     "",
   );
 
-  // DOESN'T WORK :(
-  // const temp = JSON.parse(
-  //   html`{ ${props.sessionId.trim()}: [${positionString}] }`,
-  // );
-  // const reformatted /*: string */ = JSON.stringify(temp);
-
-  return html`{ ${props.sessionId.trim()}: [${positionString}] }`;
+  return `{ status: "success" }`;
 };
 
-export default Dyad;
+export default DyadSave;
