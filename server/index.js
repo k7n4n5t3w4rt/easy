@@ -22,6 +22,7 @@ const requestHandler = (req, res) => {
 
   const output = render(App({ urlPath, searchParams }), {}, { pretty: true });
 
+  res.writeHead(200, { "Content-Type": "application/json" });
   // Fix up quotes because this is JSON, eg.
   // { status: "success" } not { status: &quot;success&quot; }
   const re = /&quot;/g;

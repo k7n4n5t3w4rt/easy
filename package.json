@@ -25,8 +25,9 @@
     "wait-on": "^5.1.0"
   },
   "scripts": {
-    "cloudrun:build": "gcloud builds submit --tag gcr.io/helpful-emitter-147506/benkobot-frontend",
-    "cloudrun:deploy": "gcloud run deploy --image gcr.io/helpful-emitter-147506/benkobot-frontend --platform managed",
+    "cloudrun:build": "gcloud builds submit --tag gcr.io/brokenbaysoftwareco/easy",
+    "cloudrun:deploy:stage": "gcloud run deploy easy--stage --image gcr.io/brokenbaysoftwareco/easy --platform managed",
+    "cloudrun:deploy:prod": "gcloud run deploy easy--prod --image gcr.io/brokenbaysoftwareco/easy --platform managed",
     "docker:build": "docker build -t benkobot-frontend .",
     "docker:clean:containers": "docker rm -f $(docker ps -a -q)",
     "docker:clean:images": "docker rmi -f $(docker images -a -q)",
