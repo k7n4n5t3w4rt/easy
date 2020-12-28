@@ -1,12 +1,9 @@
-# Instructions: https://nodejs.org/de/docs/guides/nodejs-docker-webapp/
-
-# The first thing we need to do is define from what image we want to build from.
-# NOTE: This is the same image from Docker Hub that is specified in the .gitlab-ci.yml
 FROM node:14.5.0-alpine
 
 # https://docs.docker.com/engine/reference/builder/#workdir
+# DON'T THINK WE NEED TO DO THIS: RUN mkdir -p /app
 WORKDIR /app
-#WORKDIR server
+WORKDIR server
 
 # https://docs.docker.com/engine/reference/builder/#env
 # This form, ENV <key> <value>, will set a single variable to a value.
@@ -14,8 +11,8 @@ WORKDIR /app
 # including whitespace characters. The value will be interpreted for other
 # environment variables, so quote characters will be removed if they are
 # not escaped.
-ENV NODE_ENV development
-ENV PORT 4000
+#ENV NODE_ENV production
+#ENV PORT 5000
 
 # https://docs.docker.com/engine/reference/builder/#expose
 # The EXPOSE instruction does not actually publish the port.
@@ -24,7 +21,7 @@ ENV PORT 4000
 # about which ports are intended to be published. To actually
 # publish the port when running the container, use the -p flag
 # on docker run to publish and map one or more ports
-EXPOSE 4000
+EXPOSE 5000
 
 # https://docs.docker.com/engine/reference/builder/#copy
 # COPY [--chown=<user>:<group>] <src>... <dest>
@@ -32,26 +29,10 @@ EXPOSE 4000
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json /app/
-COPY modernizr-config.json /app/
-COPY 404.html /app/
-COPY browserconfig.xml /app/
-COPY favicon.ico /app/
-COPY humans.txt /app/
-COPY icon.png /app/
-COPY index.html /app/
-COPY robots.txt /app/
-COPY site.webmanifest /app/
-COPY tile-wide.png /app/
-COPY tile.png /app/
-COPY js /app/js/
-COPY img /app/img/
-COPY css /app/css/
-COPY web_modules /app/web_modules/
 COPY server /app/server/
-
-RUN ls -al /app
+COPY js /app/js/
 
 # Install the node packages
 RUN npm ci --only=production
 
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["npm","run","start"]

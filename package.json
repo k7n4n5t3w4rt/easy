@@ -1,10 +1,10 @@
 {
-  "name": "goodthing",
-  "description": "For making new Preact projects with server-side rendering, es modules and NO compilation during development",
+  "name": "Easy",
+  "description": "An easy JSON db built with Preact and server-side rendering.",
   "version": "1.0.0",
   "author": "Kynan Stewart",
   "bugs": {
-    "url": "https://github.com/k7n4n5t3w4rt/goodthing/issues"
+    "url": "https://github.com/k7n4n5t3w4rt/easy/issues"
   },
   "dependencies": {
     "htm": "^3.0.4",
@@ -15,6 +15,7 @@
     "simple-json-db": "^1.2.2"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "faucet": "0.0.1",
     "fixpack": "^3.0.6",
     "flow-bin": "^0.123.0",
@@ -25,9 +26,9 @@
     "wait-on": "^5.1.0"
   },
   "scripts": {
-    "cloudrun:build": "gcloud builds submit --tag gcr.io/brokenbaysoftwareco/easy",
-    "cloudrun:deploy:stage": "gcloud run deploy easy--stage --image gcr.io/brokenbaysoftwareco/easy --platform managed",
-    "cloudrun:deploy:prod": "gcloud run deploy easy--prod --image gcr.io/brokenbaysoftwareco/easy --platform managed",
+    "cloudrun:build": "gcloud builds submit --tag gcr.io/helpful-emitter-147506/easy",
+    "cloudrun:deploy:stage": "gcloud run deploy easy--stage --image gcr.io/helpful-emitter-147506/easy --platform managed",
+    "cloudrun:deploy:prod": "gcloud run deploy easy--prod --image gcr.io/helpful-emitter-147506/easy --platform managed",
     "docker:build": "docker build -t benkobot-frontend .",
     "docker:clean:containers": "docker rm -f $(docker ps -a -q)",
     "docker:clean:images": "docker rmi -f $(docker images -a -q)",
