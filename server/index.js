@@ -9,24 +9,41 @@ import App from "../js/App.js";
 const html = htm.bind(h);
 
 const requestHandler = (req, res) => {
-  req.url = req.url.replace(/\/$/, "");
-  // NOTE: The trailing "/" doesn't seem to matter
-  // to `preact-router` when `/js/App.js` is being
-  // rendered server-side
-  const [urlPath /*: string */, queryString /*: string */] = req.url.split("?");
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+    "Access-Control-Max-Age": 2592000, // 30 days
+    "Access-Control-Allow-Headers":
+      "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+    /** add other headers as per requirement */
+  };
 
-  // The URL function
-  const searchParams /*: URLSearchParams */ = new URL(
-    "http://whocares.com" + req.url,
-  ).searchParams;
+  if (req.method === "OPTIONS") {
+    // $FlowFixMe
+    res.writeHead(204, headers);
+    res.end();
+  } else {
+    req.url = req.url.replace(/\/$/, "");
+    // NOTE: The trailing "/" doesn't seem to matter
+    // to `preact-router` when `/js/App.js` is being
+    // rendered server-side
+    const [urlPath /*: string */, queryString /*: string */] = req.url.split(
+      "?",
+    );
 
-  const output = render(App({ urlPath, searchParams }), {}, { pretty: true });
+    // The URL function
+    const searchParams /*: URLSearchParams */ = new URL(
+      "http://whocares.com" + req.url,
+    ).searchParams;
 
-  res.writeHead(200, { "Content-Type": "application/json" });
-  // Fix up quotes because this is JSON, eg.
-  // { status: "success" } not { status: &quot;success&quot; }
-  const re = /&quot;/g;
-  res.end(output.replace(re, '"'));
+    const output = render(App({ urlPath, searchParams }), {}, { pretty: true });
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    // Fix up quotes because this is JSON, eg.
+    // { status: "success" } not { status: &quot;success&quot; }
+    const re = /&quot;/g;
+    res.end(output.replace(re, '"'));
+  }
 };
 
 const server = http.createServer(requestHandler);
