@@ -13,6 +13,7 @@ const requestHandler = (req, res) => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
     "Access-Control-Max-Age": 2592000, // 30 days
+    "Content-Type": "application/json",
     "Access-Control-Allow-Headers":
       "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
     /** add other headers as per requirement */
@@ -38,7 +39,8 @@ const requestHandler = (req, res) => {
 
     const output = render(App({ urlPath, searchParams }), {}, { pretty: true });
 
-    res.writeHead(200, { "Content-Type": "application/json" });
+    // $FlowFixMe
+    res.writeHead(200, headers);
     // Fix up quotes because this is JSON, eg.
     // { status: "success" } not { status: &quot;success&quot; }
     const re = /&quot;/g;
