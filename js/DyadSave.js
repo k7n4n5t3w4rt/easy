@@ -40,7 +40,7 @@ const DyadSave = (props /*: Props */) => {
     "",
   );
 
-  return `{ status: "success" }`;
+  return `{ "status": "success" }`;
 };
 
 export default DyadSave;
