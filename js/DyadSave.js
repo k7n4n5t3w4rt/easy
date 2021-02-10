@@ -9,6 +9,7 @@ const html = htm.bind(h);
 /*::
 type Props = {
   sessionId: string,
+  uniqueId: string,
   position: string,
 };
 */
@@ -18,6 +19,7 @@ const DyadSave = (props /*: Props */) => {
   // If we don't have the necessary params, return
   if (
     props.sessionId === "" ||
+    props.uniqueId === "" ||
     props.position === "" ||
     typeof parseInt(props.position) !== "number"
   ) {
@@ -28,8 +30,12 @@ const DyadSave = (props /*: Props */) => {
 
   const db = new JSONdb("database.json");
   if (db.has(props.sessionId)) {
-    db.get(props.sessionId).forEach((item /*: number */) /*: void */ => {
-      positions.push(item);
+    db.get(props.sessionId).forEach((
+      item /*: { uniqueId: string, position: number } */,
+    ) /*: void */ => {
+      if (item.uniqueId !== props.uniqueId) {
+	positions.push(item.position);
+      }
     });
   }
   positions.push(props.position);
