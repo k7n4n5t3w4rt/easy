@@ -22,7 +22,9 @@ const DyadSave = (props /*: Props */) => {
 
   const db = new JSONdb("database.json");
   if (db.has(props.sessionId)) {
-    return `{"${props.sessionId}":[${db.get(props.sessionId)}]}`;
+    return `{"${props.sessionId}":[${JSON.stringify(
+      db.get(props.sessionId),
+    )}]}`;
   } else {
     return `{}`;
   }

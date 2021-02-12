@@ -15,12 +15,13 @@ type Props = {
 */
 const App /*: function */ = (props /*: Props */) => {
   const sessionId /*: string */ = props.searchParams.get("sessionId") || "";
+  const uniqueId /*: string */ = props.searchParams.get("uniqueId") || "";
   const position /*: string */ = props.searchParams.get("position") || "";
 
   return html`
     <${AppProvider} >
       <${Router} url="${props.urlPath}">
-        <${DyadSave} path="/dyad-save" sessionId="${sessionId}" position="${position}"/>
+        <${DyadSave} path="/dyad-save" uniqueId="${uniqueId}" sessionId="${sessionId}" position="${position}"/>
         <${DyadRead} path="/dyad-read" sessionId="${sessionId}"/>
       </${Router}>
     </${AppProvider} >
