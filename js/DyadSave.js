@@ -26,26 +26,23 @@ const DyadSave = (props /*: Props */) => {
     return html`{ status: "fail" }`;
   }
 
-  const newItems = [];
+  const newItems = {};
 
   const db = new JSONdb("database.json");
   if (db.has(props.sessionId)) {
-    db.get(props.sessionId).forEach((
-      item /*: { uniqueId: string, position: number } */,
-    ) /*: void */ => {
-      // if (item.uniqueId !== props.uniqueId) {
-      newItems.push(item);
-      // }
-    });
+    for (const [uniqueId, coordinates] /*: [any, any] */ of Object.entries(
+      db.get(props.sessionId),
+    )) {
+      newItems[uniqueId] = { x: coordinates.x };
+    }
   }
-  newItems.push({ uniqueId: props.uniqueId, position: props.position });
+  newItems[props.uniqueId] = { x: props.position };
   db.set(props.sessionId, newItems);
 
-  const positionString = newItems.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.position + ",",
-    "",
-  );
-
+  // const positionString = newItems.reduce(
+  //   (accumulator, currentValue) => accumulator + currentValue.position + ",",
+  //   "",
+  // );
   return `{ "status": "success" }`;
 };
 

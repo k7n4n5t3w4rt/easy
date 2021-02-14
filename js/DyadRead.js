@@ -12,7 +12,7 @@ type Props = {
   position: number,
 };
 */
-const DyadSave = (props /*: Props */) => {
+const DyadRead = (props /*: Props */) => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return
@@ -22,12 +22,10 @@ const DyadSave = (props /*: Props */) => {
 
   const db = new JSONdb("database.json");
   if (db.has(props.sessionId)) {
-    return `{"${props.sessionId}":[${JSON.stringify(
-      db.get(props.sessionId),
-    )}]}`;
+    return `{"${props.sessionId}":${JSON.stringify(db.get(props.sessionId))}}`;
   } else {
     return `{}`;
   }
 };
 
-export default DyadSave;
+export default DyadRead;
