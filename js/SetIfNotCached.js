@@ -13,12 +13,12 @@ type Props = {
   dvalue: string,
 };
 */
-const Set = (props /*: Props */) => {
+const SetIfNotCached = (props /*: Props */) => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return
   if (props.sid === "" || props.dkey === "" || props.dvalue === "") {
-    return html`{ status: "fail", message: "[Set] Missing parameters" }`;
+    return html`{ status: "fail", message: "Missing parameters" }`;
   }
   const newItems = {};
   const db = new JSONdb("database.json");
@@ -29,10 +29,16 @@ const Set = (props /*: Props */) => {
       newItems[dkey] = dvalue;
     }
   }
-  newItems[props.dkey] = props.dvalue;
-  db.set(props.sid, newItems);
-
-  return `{ "status": "success", "message": "[Set] ${props.dkey} set to ${props.dvalue}" }`;
+  if (newItems[props.dkey] === undefined) {
+    newItems[props.dkey] = props.dvalue;
+    db.set(props.sid, newItems);
+    return `{ "status": "success", "message": "[SetIfNotCached] ${
+      props.dkey
+    } set to ${newItems[props.dkey]}" }`;
+  }
+  return `{ "status": "success", "message": "[SetIfNotCached] ${
+    props.dkey
+  } unchanged (${newItems[props.dkey]})" }`;
 };
 
-export default Set;
+export default SetIfNotCached;
