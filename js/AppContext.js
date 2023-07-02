@@ -39,7 +39,7 @@ const AppProvider /*: function */ = (props /*: Props */) => {
   const [state, dispatch] = useReducer(reducer, {});
 
   return html`
-      <${AppContext.Provider} datavalue=${[state, dispatch]}>
+      <${AppContext.Provider} dvalue=${[state, dispatch]}>
 				${props.children}
       </${AppContext.Provider}>
   `;

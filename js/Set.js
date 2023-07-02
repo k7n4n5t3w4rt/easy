@@ -9,30 +9,30 @@ const html = htm.bind(h);
 /*::
 type Props = {
   sid: string,
-  datakey: string,
-  datavalue: string,
+  dkey: string,
+  dvalue: string,
 };
 */
 const Set = (props /*: Props */) => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return
-  if (props.sid === "" || props.datakey === "" || props.datavalue === "") {
+  if (props.sid === "" || props.dkey === "" || props.dvalue === "") {
     return html`{ status: "fail", message: "Missing parameters" }`;
   }
   const newItems = {};
   const db = new JSONdb("database.json");
   if (db.has(props.sid)) {
-    for (const [datakey, datavalue] /*: [any, any] */ of Object.entries(
+    for (const [dkey, dvalue] /*: [any, any] */ of Object.entries(
       db.get(props.sid),
     )) {
-      newItems[datakey] = datavalue;
+      newItems[dkey] = dvalue;
     }
   }
-  newItems[props.datakey] = props.datavalue;
+  newItems[props.dkey] = props.dvalue;
   db.set(props.sid, newItems);
 
-  return `{ "status": "success", "message": "Set ${props.datakey} to ${props.datavalue}" }`;
+  return `{ "status": "success", "message": "Set ${props.dkey} to ${props.dvalue}" }`;
 };
 
 export default Set;

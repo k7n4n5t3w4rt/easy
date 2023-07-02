@@ -15,13 +15,13 @@ type Props = {
 */
 const App /*: function */ = (props /*: Props */) => {
   const sid /*: string */ = props.searchParams.get("sid") || "";
-  const datakey /*: string */ = props.searchParams.get("datakey") || "";
-  const datavalue /*: string */ = props.searchParams.get("datavalue") || "";
+  const dkey /*: string */ = props.searchParams.get("dkey") || "";
+  const dvalue /*: string */ = props.searchParams.get("dvalue") || "";
 
   return html`
     <${AppProvider} >
       <${Router} url="${props.urlPath}">
-        <${Set} path="/set" sid="${sid}" datakey="${datakey}" datavalue="${datavalue}"/>
+        <${Set} path="/set" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
         <${Get} path="/get" sid="${sid}"/>
       </${Router}>
     </${AppProvider} >

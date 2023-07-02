@@ -9,7 +9,7 @@ const html = htm.bind(h);
 /*::
 type Props = {
   sid: string,
-  datavalue: number,
+  dvalue: number,
 };
 */
 const Get = (props /*: Props */) => {

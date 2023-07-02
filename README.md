@@ -47,4 +47,4 @@ npm start
 
 [1] Save some data:
 
-http://localhost:5000/set/?key=KEY&sid=SESSION_ID&datavalue=%7B%22key%22%3A%20%7B%20%22value%22%3A%201%7D%7D (```{"key": { "datavalue": 1}}```)
+http://localhost:5000/set/?key=KEY&sid=SESSION_ID&dvalue=%7B%22key%22%3A%20%7B%20%22value%22%3A%201%7D%7D (```{"key": { "dvalue": 1}}```)
