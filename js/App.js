@@ -1,7 +1,7 @@
 // @flow
 import { h } from "preact";
-import DyadSave from "./DyadSave.js";
-import DyadRead from "./DyadRead.js";
+import Set from "./Set.js";
+import Get from "./Get.js";
 import Router from "preact-router";
 import htm from "htm";
 import { AppProvider } from "./AppContext.js";
@@ -14,15 +14,15 @@ type Props = {
 };
 */
 const App /*: function */ = (props /*: Props */) => {
-  const sessionId /*: string */ = props.searchParams.get("sessionId") || "";
-  const uniqueId /*: string */ = props.searchParams.get("uniqueId") || "";
-  const position /*: string */ = props.searchParams.get("position") || "";
+  const sid /*: string */ = props.searchParams.get("sid") || "";
+  const datakey /*: string */ = props.searchParams.get("datakey") || "";
+  const datavalue /*: string */ = props.searchParams.get("datavalue") || "";
 
   return html`
     <${AppProvider} >
       <${Router} url="${props.urlPath}">
-        <${DyadSave} path="/dyad-save" uniqueId="${uniqueId}" sessionId="${sessionId}" position="${position}"/>
-        <${DyadRead} path="/dyad-read" sessionId="${sessionId}"/>
+        <${Set} path="/set" sid="${sid}" datakey="${datakey}" datavalue="${datavalue}"/>
+        <${Get} path="/get" sid="${sid}"/>
       </${Router}>
     </${AppProvider} >
   `;

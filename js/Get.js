@@ -8,24 +8,24 @@ const html = htm.bind(h);
 
 /*::
 type Props = {
-  sessionId: string,
-  position: number,
+  sid: string,
+  datavalue: number,
 };
 */
-const DyadRead = (props /*: Props */) => {
+const Get = (props /*: Props */) => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return
-  if (props.sessionId === "") {
+  if (props.sid === "") {
     return html`{ status: "fail" }`;
   }
 
   const db = new JSONdb("database.json");
-  if (db.has(props.sessionId)) {
-    return `{"${props.sessionId}":${JSON.stringify(db.get(props.sessionId))}}`;
+  if (db.has(props.sid)) {
+    return `{"${props.sid}":${JSON.stringify(db.get(props.sid))}}`;
   } else {
     return `{}`;
   }
 };
 
-export default DyadRead;
+export default Get;
