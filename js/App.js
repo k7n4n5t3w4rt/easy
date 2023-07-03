@@ -23,7 +23,7 @@ const App /*: function */ = (props /*: Props */) => {
     <${AppProvider} >
       <${Router} url="${props.urlPath}">
         <${Set} path="/set" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
-        <${Get} path="/get" sid="${sid}"/>
+        <${Get} path="/get" sid="${sid}" dkey="${dkey}"/>
         <${SetIfNotCached} path="/setifnotcached" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
       </${Router}>
     </${AppProvider} >

@@ -9,20 +9,24 @@ const html = htm.bind(h);
 /*::
 type Props = {
   sid: string,
-  dvalue: number,
+  dkey: string,
 };
 */
 const Get = (props /*: Props */) => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return
-  if (props.sid === "") {
-    return html`{ status: "fail" }`;
+  if (props.sid === "" || props.dkey === "") {
+    const message = JSON.stringify({
+      status: "fail",
+      message: "[Set] Missing parameters",
+    });
+    return message;
   }
 
   const db = new JSONdb("database.json");
   if (db.has(props.sid)) {
-    return `{"${props.sid}":${JSON.stringify(db.get(props.sid))}}`;
+    return JSON.stringify({ [props.dkey]: db.get(props.sid)[props.dkey] });
   } else {
     return `{}`;
   }

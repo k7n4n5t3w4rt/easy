@@ -1,12 +1,47 @@
 {
-    "kljhlkhjlkjh": {
-        "hlkjhlj": "lkjhlkjhlkj"
+    "workflowSttngs": {
+        "colorGold": "ffd700",
+        "x": "0.07",
+        "y": "0.07",
+        "z": "0.07",
+        "step": "0.35",
+        "yOffset": "0.7",
+        "rangeMax": "0.21",
+        "rangeIncreaseRate": "1.15",
+        "rangeDecreaseRate": "0.95",
+        "showMetrics": "true",
+        "colorGrey": "808080",
+        "fps": "1",
+        "scaleCm": "7",
+        "scale": "0.07",
+        "colorGreen": "00ff00",
+        "arrivalNumber": "4",
+        "devUnits": "1",
+        "expdtQueueLength": "8",
+        "expdtDvUnitsFactor": "1",
+        "devCapacityAvailable": "0.6"
     },
-    "etyreytr": {
-        "hlkjhlj": "lkjhlkjhlkj",
-        "hhhhh": "jjjjj",
-        "iiii": "jjjjj",
-        "zzzzzzz": "zzzzzzzzzzzzz",
-        "aaaaa": "yyyyyyyy"
+    "workflowState": {
+        "clckCbGroup": "{}",
+        "clckCube": "{}",
+        "clicks": "undefined",
+        "drag": "0",
+        "endPosition": "{}",
+        "expdtCount": "8",
+        "flwItems": "[]",
+        "flwItmTracker": "{}",
+        "flwMap": "{}",
+        "flwItmsPulledCount": "0",
+        "scnData": "{\"stats\":{\"REVISION\":16,\"dom\":{},\"domElement\":{}},\"scene\":{\"metadata\":{\"version\":4.5,\"type\":\"Object\",\"generator\":\"Object3D.toJSON\"},\"object\":{\"uuid\":\"8D3AD5A4-8662-4468-8DED-306B2C48AF15\",\"type\":\"Scene\",\"layers\":1,\"matrix\":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],\"children\":[{\"uuid\":\"A6BB2383-D610-40BA-ABCD-F2EF64338AE7\",\"type\":\"HemisphereLight\",\"layers\":1,\"matrix\":[1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1],\"color\":16777215,\"intensity\":1,\"groundColor\":12303359}]}},\"camera\":{\"metadata\":{\"version\":4.5,\"type\":\"Object\",\"generator\":\"Object3D.toJSON\"},\"object\":{\"uuid\":\"2C71299E-3F70-4766-A95B-796D08CB708F\",\"type\":\"PerspectiveCamera\",\"layers\":1,\"matrix\":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],\"fov\":75,\"zoom\":1,\"near\":0.01,\"far\":50,\"focus\":10,\"aspect\":1.8848167539267016,\"filmGauge\":35,\"filmOffset\":0}},\"reticleStuff\":{\"reticle\":{},\"active\":false},\"renderer\":{\"domElement\":{},\"debug\":{\"checkShaderErrors\":true},\"autoClear\":true,\"autoClearColor\":true,\"autoClearDepth\":true,\"autoClearStencil\":true,\"sortObjects\":true,\"clippingPlanes\":[],\"localClippingEnabled\":false,\"outputEncoding\":3000,\"physicallyCorrectLights\":false,\"toneMapping\":0,\"toneMappingExposure\":1,\"capabilities\":{\"isWebGL2\":true,\"drawBuffers\":true,\"precision\":\"highp\",\"logarithmicDepthBuffer\":false,\"maxTextures\":16,\"maxVertexTextures\":16,\"maxTextureSize\":16384,\"maxCubemapSize\":16384,\"maxAttributes\":16,\"maxVertexUniforms\":1024,\"maxVaryings\":15,\"maxFragmentUniforms\":1024,\"vertexTextures\":true,\"floatFragmentTextures\":true,\"floatVertexTextures\":true,\"maxSamples\":4},\"extensions\":{},\"properties\":{},\"renderLists\":{},\"shadowMap\":{\"enabled\":false,\"autoUpdate\":true,\"needsUpdate\":false,\"type\":1},\"state\":{\"buffers\":{\"color\":{},\"depth\":{},\"stencil\":{}}},\"info\":{\"memory\":{\"geometries\":0,\"textures\":0},\"render\":{\"frame\":0,\"calls\":0,\"triangles\":0,\"points\":0,\"lines\":0},\"programs\":[],\"autoReset\":true},\"xr\":{\"cameraAutoUpdate\":true,\"enabled\":true,\"isPresenting\":false,\"_listeners\":{\"sessionstart\":[null],\"sessionend\":[null]}}}}",
+        "strtPosition": "{}",
+        "vSphere": "{}",
+        "vQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "flwTmQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "thrPtQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "wipQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "flwTmExpQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "thrPtExpQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "wipExpdtQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
+        "started": "true"
     }
 }

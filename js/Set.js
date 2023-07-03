@@ -18,7 +18,11 @@ const Set = (props /*: Props */) => {
 
   // If we don't have the necessary params, return
   if (props.sid === "" || props.dkey === "" || props.dvalue === "") {
-    return html`{ status: "fail", message: "[Set] Missing parameters" }`;
+    const message = JSON.stringify({
+      status: "fail",
+      message: "[Set] Missing parameters",
+    });
+    return message;
   }
   const newItems = {};
   const db = new JSONdb("database.json");
@@ -31,8 +35,11 @@ const Set = (props /*: Props */) => {
   }
   newItems[props.dkey] = props.dvalue;
   db.set(props.sid, newItems);
-
-  return `{ "status": "success", "message": "[Set] ${props.dkey} set to ${props.dvalue}" }`;
+  const message = JSON.stringify({
+    status: "success",
+    message: `[Set] ${props.dkey} set to ${props.dvalue}`,
+  });
+  return message;
 };
 
 export default Set;
