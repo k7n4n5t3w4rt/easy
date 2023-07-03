@@ -43,5 +43,8 @@
         "thrPtExpQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
         "wipExpdtQueue": "{\"items\":{},\"headIndex\":0,\"tailIndex\":0}",
         "started": "true"
+    },
+    "foo": {
+        "foofoo": "barbar"
     }
 }

@@ -3,7 +3,6 @@ FROM node:14.5.0-alpine
 # https://docs.docker.com/engine/reference/builder/#workdir
 # DON'T THINK WE NEED TO DO THIS: RUN mkdir -p /app
 WORKDIR /app
-WORKDIR server
 
 # https://docs.docker.com/engine/reference/builder/#env
 # This form, ENV <key> <value>, will set a single variable to a value.
