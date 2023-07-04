@@ -32,6 +32,7 @@ COPY server /app/server/
 COPY js /app/js/
 
 # Install the node packages
-RUN npm ci --only=production
+#RUN npm ci --only=production
+RUN npm i
 
 ENTRYPOINT ["npm","run","start"]
