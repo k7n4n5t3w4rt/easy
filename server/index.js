@@ -28,7 +28,7 @@ const requestHandler = (req, res) => {
     // NOTE: The trailing "/" doesn't seem to matter
     // to `preact-router` when `/js/App.js` is being
     // rendered server-side
-    const [urlPath /*: string */, queryString /*: string */] = req.url.split(
+    const [urlPath, queryString] = req.url.split(
       "?",
     );
 

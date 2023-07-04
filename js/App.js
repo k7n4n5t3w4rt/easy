@@ -5,7 +5,6 @@ import Get from "./Get.js";
 import SetIfNotCached from "./SetIfNotCached.js";
 import Router from "preact-router";
 import htm from "htm";
-import { AppProvider } from "./AppContext.js";
 const html = htm.bind(h);
 
 /*::
@@ -20,13 +19,11 @@ const App /*: function */ = (props /*: Props */) => {
   const dvalue /*: string */ = props.searchParams.get("dvalue") || "";
 
   return html`
-    <${AppProvider} >
       <${Router} url="${props.urlPath}">
         <${Set} path="/set" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
         <${Get} path="/get" sid="${sid}" dkey="${dkey}"/>
         <${SetIfNotCached} path="/setifnotcached" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
       </${Router}>
-    </${AppProvider} >
   `;
 };
 

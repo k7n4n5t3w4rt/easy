@@ -13,7 +13,7 @@ type Props = {
   dvalue: string,
 };
 */
-const Set = (props /*: Props */) => {
+const Set = (props /*: Props */) /*: string */ => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return

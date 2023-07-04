@@ -13,7 +13,7 @@ type Props = {
   dvalue: string,
 };
 */
-const SetIfNotCached = (props /*: Props */) => {
+const SetIfNotCached = (props /*: Props */) /*: string */ => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return

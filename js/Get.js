@@ -12,7 +12,7 @@ type Props = {
   dkey: string,
 };
 */
-const Get = (props /*: Props */) => {
+const Get = (props /*: Props */) /*: string */ => {
   // const [count /*: number */, setCount] = useState(props.count);
 
   // If we don't have the necessary params, return
