@@ -1,7 +1,7 @@
 {
   "name": "Easy",
   "description": "An easy JSON db built with Preact and server-side rendering.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Kynan Stewart",
   "bugs": {
     "url": "https://github.com/k7n4n5t3w4rt/easy/issues"

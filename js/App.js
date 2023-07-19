@@ -2,6 +2,7 @@
 import { h } from "preact";
 import Set from "./Set.js";
 import Get from "./Get.js";
+import Clear from "./Clear.js";
 import SetIfNotCached from "./SetIfNotCached.js";
 import Router from "preact-router";
 import htm from "htm";
@@ -21,6 +22,7 @@ const App /*: function */ = (props /*: Props */) => {
   return html`
       <${Router} url="${props.urlPath}">
         <${Set} path="/set" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
+        <${Clear} path="/clear" sid="${sid}"/>
         <${Get} path="/get" sid="${sid}" dkey="${dkey}"/>
         <${SetIfNotCached} path="/setifnotcached" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
       </${Router}>
