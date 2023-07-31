@@ -2,6 +2,7 @@
 import { h } from "preact";
 import Set from "./Set.js";
 import Get from "./Get.js";
+import GetAll from "./GetAll.js";
 import Clear from "./Clear.js";
 import SetIfNotCached from "./SetIfNotCached.js";
 import Router from "preact-router";
@@ -24,6 +25,7 @@ const App /*: function */ = (props /*: Props */) => {
         <${Set} path="/set" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
         <${Clear} path="/clear" sid="${sid}"/>
         <${Get} path="/get" sid="${sid}" dkey="${dkey}"/>
+        <${GetAll} path="/getall" sid="${sid}"/>
         <${SetIfNotCached} path="/setifnotcached" sid="${sid}" dkey="${dkey}" dvalue="${dvalue}"/>
       </${Router}>
   `;
